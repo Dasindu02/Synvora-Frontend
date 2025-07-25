@@ -1,22 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :host {
-  display: block;
-  height: 100vh;
+  height: 110vh;
 }
 
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0a1a35 0%, #1e293b 100%);
+  min-height: 90vh;
+  background: linear-gradient(135deg, #425a84 0%, #1e293b 100%);
   font-family: 'Inter', sans-serif;
   padding: 20px;
-  background-image: 
-    linear-gradient(135deg, #0a1a35 0%, #1e293b 100%),
-    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMTAxNjJjIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxYTIxMzciIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
-}
+ }
 
 .signup-card {
   background: rgba(255, 255, 255, 0.95);

@@ -1,16 +1,17 @@
 import { Routes } from '@angular/router';
-import { Signup } from './signup/signup';
+import { Signup} from './signup/signup';
+import { Home } from './home/home';
 
 export const routes: Routes = [
+  { 
+    path: '', 
+    component: Home,  
+    title: 'Synvora '
+  },
   { 
     path: 'signup', 
     component: Signup,
     title: 'Synvora' 
   },
-  { 
-    path: '', 
-    redirectTo: 'signup', 
-    pathMatch: 'full' 
-  },
- 
+  // Add other routes as needed
 ];
