@@ -1,0 +1,47 @@
+.header {
+  background: #0a1a35;
+  padding: 1rem 2rem;
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left:-9%;
+    
+    img {
+      height: 45px;
+      
+    }
+    
+    span {
+      color: white;
+      font-weight: 600;
+      font-size: 22px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 4rem;
+    font-size: 17px;
+    margin-right:-10%;
+    
+    a {
+      color: white;
+      text-decoration: none;
+      
+      &.active {
+        color: gold;
+        font-weight: 500;
+      }
+    }
+  }
+}
