@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  background-color: #425a84;
+}
+
+a {
+  color: gold;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #FFD700;
+    text-decoration: underline;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(59, 0, 0);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2e81e5;
+}
