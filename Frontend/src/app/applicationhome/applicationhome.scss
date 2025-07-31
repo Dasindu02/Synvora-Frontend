@@ -1,0 +1,25 @@
+.content-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: #f5f5f5;
+  
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  h1 {
+    color: #0a1a35;
+    margin-bottom: 1.5rem;
+  }
+
+  p{
+    font-size: 28px;
+    color: #000;
+  }
+  
+}

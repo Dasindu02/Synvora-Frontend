@@ -1,0 +1,33 @@
+.home-page {
+  padding: 2rem;
+  text-align: center;
+  
+  h1 {
+    color: #0a1a35;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .app-home-button {
+    padding: 12px 24px;
+    background-color: #0a1a35;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: darken(#0a1a35, 10%);
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
