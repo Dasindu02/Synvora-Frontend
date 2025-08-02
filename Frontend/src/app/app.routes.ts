@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Signup} from './signup/signup';
 import { Home } from './home/home';
 import { Applicationhome } from './applicationhome/applicationhome';
+import { Aboutus } from './aboutus/aboutus';  
 
 export const routes: Routes = [
   { 
@@ -19,6 +20,11 @@ export const routes: Routes = [
     component: Applicationhome,
     title: 'Synvora',
     data: { hideHeaderFooter: true }  
+  },
+  {
+    path: 'aboutus',
+    component: Aboutus,
+    title: 'Synvora'
   },
 
 
