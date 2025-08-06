@@ -39,8 +39,8 @@
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  margin-bottom: 1.5rem;
+  background: white;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -52,16 +52,17 @@
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: #4a5568;
+  color: rgb(123, 112, 112);
   margin-bottom: 1rem;
 }
 
 .hero-description {
-  font-size: 1.1rem;
-  color: #64748b;
+  font-size: 1.2rem;
+  color: #251112;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto 2rem;
+  font-weight: 600;
   
   @media (min-width: 768px) {
     margin: 0 0 2rem 0;
