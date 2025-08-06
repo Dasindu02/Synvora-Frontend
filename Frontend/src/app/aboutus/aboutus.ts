@@ -1,61 +1,83 @@
-// aboutus.ts
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
-import { CountUpModule } from 'ngx-countup';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-aboutus',
   standalone: true,
-  imports: [CommonModule, CountUpModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './aboutus.html',
-  styleUrls: ['./aboutus.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms ease-in', style({ opacity: 1 }))
-      ])
-    ]),
-    trigger('staggerIn', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(20px)' }),
-          stagger(100, [
-            animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-          ])
-        ], { optional: true })
-      ])
-    ])
-  ]
+  styleUrls: ['./aboutus.scss']
 })
-export class Aboutus implements OnInit {
-  profileImagePath = 'assets/profilepic.jpg';
+export class Aboutus {
   imageLoaded = false;
   
+  coreValues = [
+    { 
+      emoji: '🔍', 
+      title: 'Transparency', 
+      description: 'We believe financial clarity builds trust in relationships.' 
+    },
+    { 
+      emoji: '🤝', 
+      title: 'Collaboration', 
+      description: 'Money management should be a team effort, not a solo struggle.' 
+    },
+    { 
+      emoji: '🛡️', 
+      title: 'Security', 
+      description: 'Your financial data is protected with enterprise-grade encryption.' 
+    },
+    { 
+      emoji: '💎', 
+      title: 'Simplicity', 
+      description: 'Complex financial tracking made beautifully simple.' 
+    }
+  ];
+
+  features = [
+    {
+      emoji: '👥',
+      title: 'Dual Mode',
+      description: 'Track shared expenses while maintaining personal spending privacy.'
+    },
+    {
+      emoji: '📊',
+      title: 'Smart Analytics',
+      description: 'Visual reports help you understand spending patterns at a glance.'
+    },
+    {
+      emoji: '💸',
+      title: 'Loan Management',
+      description: 'Track and split loan payments with your partner effortlessly.'
+    },
+    {
+      emoji: '📱',
+      title: 'Anywhere Access',
+      description: 'Access your budget from any device, anytime.'
+    }
+  ];
+
   teamMembers = [
-    { emoji: '👨‍💻', name: 'Dasindu Dinsara', role: 'Software Engineer' },
-    { emoji: '👩‍🎨', name: 'Jane Doe', role: 'UI/UX Designer' },
-    { emoji: '📈', name: 'John Smith', role: 'Business Analyst' }
+    { 
+      avatar: 'assets/profilepic.jpg',
+      name: 'Dasindu Dinsara', 
+      role: 'Founder & Lead Developer',
+      bio: 'Financial tech enthusiast with 5+ years building budgeting tools'
+    },
+    { 
+      avatar: 'assets/team/jane.jpg',
+      name: 'Jane Smith', 
+      role: 'UX Designer',
+      bio: 'Specializes in making complex financial data intuitive'
+    },
+    { 
+      avatar: 'assets/team/alex.jpg',
+      name: 'Alex Johnson', 
+      role: 'Financial Advisor',
+      bio: 'Certified financial planner ensuring sound money principles'
+    }
   ];
-
-  stats = [
-    { value: 150, label: 'Projects Completed' },
-    { value: 50, label: 'Happy Clients' },
-    { value: 10, label: 'Years Experience' },
-    { value: 24, label: 'Team Members' }
-  ];
-
-  countUpOptions = {
-    duration: 2,
-    separator: ',',
-    decimal: '.',
-    enableScrollSpy: true
-  };
-
-  ngOnInit(): void {
-    // Initialization logic if needed
-  }
 
   onImageLoad(): void {
     this.imageLoaded = true;
