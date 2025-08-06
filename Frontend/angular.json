@@ -30,10 +30,10 @@
     "output": "/"
   },
   {
-    "glob": "**/*",
-    "input": "src/assets",
-    "output": "/assets/"
-  }
+  "glob": "**/*",
+  "input": "src/assets",
+  "output": "/assets/"
+}
 ],
             "styles": [
               "src/styles.scss"

@@ -12,7 +12,7 @@
     </div>
     <div class="hero-image">
       <img 
-        src="assets/images/finance-dashboard.png" 
+        src="assets/1603896970-fea.webp" 
         alt="Synvora dashboard screenshot" 
         (load)="onImageLoad()"
         [class.loaded]="imageLoaded"
@@ -58,7 +58,7 @@
   </section>
 
   <!-- Team Section -->
-  <section class="team-section">
+<section class="team-section">
     <h2>Meet the Team</h2>
     <p class="team-description">
       A passionate group of financial enthusiasts and tech experts dedicated to 
@@ -68,7 +68,13 @@
     <div class="team-grid">
       <div class="team-card" *ngFor="let member of teamMembers">
         <div class="team-avatar">
-          <img [src]="member.avatar" [alt]="member.name + ' profile picture'">
+          <img 
+            [src]="member.avatar" 
+            [alt]="member.name + ' profile picture'"
+            (load)="onImageLoad()"
+            (error)="onImageError($event)"
+            [class.loaded]="imageLoaded"
+          >
         </div>
         <h3>{{member.name}}</h3>
         <p class="team-role">{{member.role}}</p>

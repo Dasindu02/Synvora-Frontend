@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class Aboutus {
   imageLoaded = false;
+  imageError = false;
   
   coreValues = [
     { 
@@ -60,7 +61,7 @@ export class Aboutus {
 
   teamMembers = [
     { 
-      avatar: 'assets/profilepic.jpg',
+      avatar: 'assets/profilepic01.jpg',
       name: 'Dasindu Dinsara', 
       role: 'Founder & Lead Developer',
       bio: 'Financial tech enthusiast with 5+ years building budgeting tools'
@@ -81,5 +82,11 @@ export class Aboutus {
 
   onImageLoad(): void {
     this.imageLoaded = true;
+  }
+
+  onImageError(event: Event): void {
+    this.imageError = true;
+    const img = event.target as HTMLImageElement;
+    img.src = 'assets/placeholder.jpg'; // Fallback image
   }
 }
