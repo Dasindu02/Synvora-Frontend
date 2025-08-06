@@ -1,0 +1,100 @@
+<div class="about-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">About Synvora</h1>
+      <p class="hero-subtitle">Smart budgeting for individuals and couples</p>
+      <p class="hero-description">
+        Synvora revolutionizes personal finance management by offering intuitive tools
+         for tracking income, expenses, and loans—whether you're managing your own budget or
+          sharing financial responsibilities with a partner. With real-time analytics,
+           customizable budgeting goals, and smart reminders, Synvora helps you stay in
+            control of your finances effortlessly. Its collaborative features make it easy for couples,
+             families, or roommates to plan together, while data-driven insights empower smarter decisions
+      </p>
+    </div>
+    <div class="hero-image">
+      <img 
+        src="assets/1603896970-fea.webp" 
+        alt="Synvora dashboard screenshot" 
+        (load)="onImageLoad()"
+        [class.loaded]="imageLoaded"
+      >
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="mission-section">
+    <div class="mission-card">
+      <div class="mission-icon">💡</div>
+      <h2>Our Mission</h2>
+      <p>
+        To empower individuals and couples with transparent, collaborative financial tools 
+        that simplify money management and promote financial harmony.
+      </p>
+    </div>
+    
+    <div class="values-card">
+      <h2>Our Core Values</h2>
+      <ul>
+        <li *ngFor="let value of coreValues">
+          <span class="value-emoji">{{value.emoji}}</span>
+          <div>
+            <h3>{{value.title}}</h3>
+            <p>{{value.description}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2>Why Choose Synvora?</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">{{feature.emoji}}</div>
+        <h3>{{feature.title}}</h3>
+        <p>{{feature.description}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+<section class="team-section">
+    <h2>Meet the Team</h2>
+    <p class="team-description">
+      A passionate group of financial enthusiasts and tech experts dedicated to 
+      making money management stress-free.
+    </p>
+    
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of teamMembers">
+        <div class="team-avatar">
+          <img 
+            [src]="member.avatar" 
+            [alt]="member.name + ' profile picture'"
+            (load)="onImageLoad()"
+            (error)="onImageError($event)"
+            [class.loaded]="imageLoaded"
+          >
+        </div>
+        <h3>{{member.name}}</h3>
+        <p class="team-role">{{member.role}}</p>
+        <p class="team-bio">{{member.bio}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to take control of your finances?</h2>
+      <p>Join thousands of users who are achieving their financial goals with Synvora.</p>
+      <div class="cta-buttons">
+        <button class="cta-button primary" routerLink="/signup">Get Started Free</button>
+        <button class="cta-button secondary" routerLink="/features">Learn More</button>
+      </div>
+    </div>
+  </section>
+</div>
