@@ -25,5 +25,4 @@ describe('Aboutus', () => {
     expect(component).toBeTruthy();
   });
 
-  // ... rest of your test cases remain the same
 });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,10 +9,23 @@ import { RouterModule } from '@angular/router';
   templateUrl: './aboutus.html',
   styleUrls: ['./aboutus.scss']
 })
-export class Aboutus {
+export class Aboutus implements OnInit, OnDestroy {
   imageLoaded = false;
   imageError = false;
   
+  heroImages = [
+    'assets/1603896970-fea.webp',
+    'assets/new02.jpg', 
+    'assets/new04.jpg',
+    'assets/new05.jpg', 
+ 
+
+  ];
+  currentImageIndex = 0;
+  slideshowInterval: any;
+  slideshowActive = true;
+  slideshowIntervalTime = 3500; 
+
   coreValues = [
     { 
       emoji: '🔍', 
@@ -63,22 +76,30 @@ export class Aboutus {
     { 
       avatar: 'assets/profilepic01.jpg',
       name: 'Dasindu Dinsara', 
-      role: 'Founder & Lead Developer',
+      role: 'Founder & Lead Developer | Software Engineer',
       bio: 'Financial tech enthusiast with 5+ years building budgeting tools'
     },
     { 
-      avatar: 'assets/team/jane.jpg',
-      name: 'Jane Smith', 
+      avatar: 'assets/example01.jpg',
+      name: 'Seraphina Eleanor', 
       role: 'UX Designer',
       bio: 'Specializes in making complex financial data intuitive'
     },
     { 
-      avatar: 'assets/team/alex.jpg',
-      name: 'Alex Johnson', 
+      avatar: 'assets/example03.jpeg',
+      name: 'Chamath Palihapitiya', 
       role: 'Financial Advisor',
       bio: 'Certified financial planner ensuring sound money principles'
     }
   ];
+
+  ngOnInit(): void {
+    this.startSlideshow();
+  }
+
+  ngOnDestroy(): void {
+    this.stopSlideshow();
+  }
 
   onImageLoad(): void {
     this.imageLoaded = true;
@@ -87,6 +108,62 @@ export class Aboutus {
   onImageError(event: Event): void {
     this.imageError = true;
     const img = event.target as HTMLImageElement;
-    img.src = 'assets/placeholder.jpg'; // Fallback image
+    img.src = 'assets/placeholder.jpg';
+  }
+
+  // Slideshow methods
+  startSlideshow(): void {
+    this.slideshowActive = true;
+    this.slideshowInterval = setInterval(() => {
+      this.nextImage();
+    }, this.slideshowIntervalTime);
+  }
+
+  stopSlideshow(): void {
+    this.slideshowActive = false;
+    if (this.slideshowInterval) {
+      clearInterval(this.slideshowInterval);
+    }
+  }
+
+  toggleSlideshow(): void {
+    if (this.slideshowActive) {
+      this.stopSlideshow();
+    } else {
+      this.startSlideshow();
+    }
+  }
+
+  nextImage(): void {
+    this.imageLoaded = false;
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.heroImages.length;
+  }
+
+  prevImage(): void {
+    this.imageLoaded = false;
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.heroImages.length) % this.heroImages.length;
+  }
+
+  goToImage(index: number): void {
+    this.imageLoaded = false;
+    this.currentImageIndex = index;
+    
+    // Reset the slideshow timer when manually selecting an image
+    if (this.slideshowActive) {
+      this.stopSlideshow();
+      this.startSlideshow();
+    }
+  }
+
+  pauseOnHover(): void {
+    if (this.slideshowActive) {
+      this.stopSlideshow();
+    }
+  }
+
+  resumeOnLeave(): void {
+    if (!this.slideshowActive) {
+      this.startSlideshow();
+    }
   }
 }
