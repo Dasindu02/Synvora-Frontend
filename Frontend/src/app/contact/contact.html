@@ -1,0 +1,120 @@
+<div class="contact-container">
+  <section class="contact-hero">
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>We'd love to hear from you! Whether you have a question about features, trials, pricing, or anything else, our team is ready to answer all your questions.</p>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/contact-hero.svg" alt="Contact us">
+    </div>
+  </section>
+
+  <div class="contact-main">
+    <section class="contact-form-section">
+      <h2>Send us a message</h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" formControlName="name" placeholder="John Doe">
+          <div *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)"
+               class="error-message">
+            Name is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" formControlName="email" placeholder="john@example.com">
+          <div *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)"
+               class="error-message">
+            Valid email is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" formControlName="subject">
+            <option value="" disabled selected>Select a subject</option>
+            <option value="support">Support</option>
+            <option value="sales">Sales Inquiry</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </select>
+          <div *ngIf="contactForm.get('subject')?.invalid && (contactForm.get('subject')?.dirty || contactForm.get('subject')?.touched)"
+               class="error-message">
+            Please select a subject
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" formControlName="message" rows="5" placeholder="Type your message here..."></textarea>
+          <div *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)"
+               class="error-message">
+            Message is required (minimum 10 characters)
+          </div>
+        </div>
+        
+        <button type="submit" [disabled]="!contactForm.valid" class="submit-btn">
+          <span *ngIf="!isSubmitting">Send Message</span>
+          <span *ngIf="isSubmitting" class="spinner"></span>
+        </button>
+      </form>
+    </section>
+
+    <section class="contact-info-section">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email Us</h3>
+        <p>For general inquiries</p>
+        <a href="mailto:info@synvora.com">info@synvora.com</a>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Support</h3>
+        <p>For technical support</p>
+        <a href="mailto:support@synvora.com">support@synvora.com</a>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Visit Us</h3>
+        <p>Our headquarters</p>
+        <address>123 Tech Park Avenue<br>San Francisco, CA 94107</address>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h3>Call Us</h3>
+        <p>Mon-Fri, 9am-5pm PST</p>
+        <a href="tel:+18005551234">+1 (800) 555-1234</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="map-section">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.158496041381!2d-122.4036646846821!3d37.7868829797576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807f0f6e81a5%3A0x5a7a3f4b1f2b3b4c!2s123%20Tech%20Park%20Ave%2C%20San%20Francisco%2C%20CA%2094107!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+  
+  <div *ngIf="showSuccessModal" class="success-modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Message Sent Successfully!</h3>
+      <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+      <button class="modal-btn" (click)="closeModal()">OK</button>
+    </div>
+  </div>
+</div>
