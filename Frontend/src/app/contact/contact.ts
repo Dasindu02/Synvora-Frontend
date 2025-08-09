@@ -1,46 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.html',
-  styleUrls: ['./contact.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [FormsModule, CommonModule],
+  templateUrl: './contact.html',
+  styleUrl: './contact.scss'
 })
-export class ContactComponent implements OnInit {
-  contactForm: FormGroup;
+export class Contact {
+  formData = {
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  };
+
   isSubmitting = false;
-  showSuccessModal = false;
-
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', [Validators.required, Validators.minLength(10)]]
-    });
-  }
-
-  ngOnInit(): void {
-  }
+  submitSuccess = false;
 
   onSubmit() {
-    if (this.contactForm.valid) {
-      this.isSubmitting = true;
-      
-      // Simulate API call
-      setTimeout(() => {
-        this.isSubmitting = false;
-        this.showSuccessModal = true;
-        this.contactForm.reset();
-      }, 1500);
-    }
-  }
+    if (this.isSubmitting) return;
 
-  closeModal() {
-    this.showSuccessModal = false;
+    this.isSubmitting = true;
+    
+    // Simulate API call
+    setTimeout(() => {
+      console.log('Form submitted:', this.formData);
+      this.isSubmitting = false;
+      this.submitSuccess = true;
+      
+      // Reset form after success
+      setTimeout(() => {
+        this.formData = {
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        };
+        this.submitSuccess = false;
+      }, 5000);
+    }, 1500);
   }
 }
