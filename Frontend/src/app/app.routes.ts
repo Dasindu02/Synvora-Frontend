@@ -3,7 +3,7 @@ import { Signup} from './signup/signup';
 import { Home } from './home/home';
 import { Applicationhome } from './applicationhome/applicationhome';
 import { Aboutus } from './aboutus/aboutus';  
-import { ContactComponent } from './contact/contact'; 
+import { Contact } from './contact/contact'; 
 
 export const routes: Routes = [
   { 
@@ -29,7 +29,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactComponent,
+    component: Contact,
     title: ' Synvora'
   },
 
