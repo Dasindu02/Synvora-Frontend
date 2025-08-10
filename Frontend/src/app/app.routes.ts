@@ -4,6 +4,9 @@ import { Home } from './home/home';
 import { Applicationhome } from './applicationhome/applicationhome';
 import { Aboutus } from './aboutus/aboutus';  
 import { Contact } from './contact/contact'; 
+import { Features } from './features/features'
+; 
+
 
 export const routes: Routes = [
   { 
@@ -30,6 +33,11 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: Contact,
+    title: ' Synvora'
+  },
+   {
+    path: 'features',
+    component: Features,
     title: ' Synvora'
   },
 
