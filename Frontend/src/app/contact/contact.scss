@@ -308,7 +308,7 @@ margin-bottom: 2%;
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(135deg, darken($primary, 5%), $primary);
+          // background: linear-gradient(135deg, darken($primary, 5%), $primary);
           z-index: 1;
           transform: translateX(-100%);
           transition: transform $transition-medium;
