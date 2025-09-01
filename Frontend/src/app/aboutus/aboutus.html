@@ -1,25 +1,38 @@
 <div class="about-container">
   <!-- Hero Section -->
-  <section class="hero-section">
+   <section class="hero-section">
     <div class="hero-content">
       <h1 class="hero-title">About Synvora</h1>
       <p class="hero-subtitle">Smart budgeting for individuals and couples</p>
       <p class="hero-description">
         Synvora revolutionizes personal finance management by offering intuitive tools
-         for tracking income, expenses, and loans—whether you're managing your own budget or
-          sharing financial responsibilities with a partner. With real-time analytics,
-           customizable budgeting goals, and smart reminders, Synvora helps you stay in
-            control of your finances effortlessly. Its collaborative features make it easy for couples,
-             families, or roommates to plan together, while data-driven insights empower smarter decisions
+        for tracking income, expenses, and loans—whether you're managing your own budget or
+        sharing financial responsibilities with a partner. With real-time analytics,
+        customizable budgeting goals, and smart reminders, Synvora helps you stay in
+        control of your finances effortlessly. Its collaborative features make it easy for couples,
+        families, or roommates to plan together, while data-driven insights empower smarter decisions
       </p>
     </div>
-    <div class="hero-image">
-      <img 
-        src="assets/1603896970-fea.webp" 
-        alt="Synvora dashboard screenshot" 
-        (load)="onImageLoad()"
-        [class.loaded]="imageLoaded"
-      >
+    
+    <div class="hero-image" 
+         (mouseenter)="pauseOnHover()" 
+         (mouseleave)="resumeOnLeave()">
+      <div class="slideshow-container">
+        <img 
+          [src]="heroImages[currentImageIndex]" 
+          alt="Synvora dashboard screenshot" 
+          (load)="onImageLoad()"
+          [class.loaded]="imageLoaded"
+        >
+        
+        <div class="slideshow-indicators">
+          <span 
+            *ngFor="let image of heroImages; let i = index"
+            [class.active]="i === currentImageIndex"
+            (click)="goToImage(i)"
+          ></span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -29,9 +42,9 @@
       <div class="mission-icon">💡</div>
       <h2>Our Mission</h2>
       <p>
-        To empower individuals and couples with transparent, collaborative financial tools 
-        that simplify money management and promote financial harmony.
-      </p>
+      We believe financial peace starts with shared understanding. Our tools help individuals and partners 
+      track spending, manage debts, and align money goals—transforming budgets from stressful to strategic.
+    </p>
     </div>
     
     <div class="values-card">

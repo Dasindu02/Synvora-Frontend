@@ -39,6 +39,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
+  margin-top: -10%;
   margin-bottom: 1.5rem;
   background: white;
   -webkit-background-clip: text;
@@ -52,7 +53,7 @@
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: rgb(123, 112, 112);
+  color: rgb(101, 255, 247);
   margin-bottom: 1rem;
 }
 
@@ -171,7 +172,7 @@
   h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #1e40af;
+    color: #ffffff;
   }
 }
 
@@ -218,11 +219,11 @@
   h2 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
-    color: #1e40af;
+    color: #ffffff;
   }
   
   .team-description {
-    color: #64748b;
+    color: rgb(101, 255, 247);
     margin-bottom: 4rem;
     font-size: 1.15rem;
     max-width: 700px;
@@ -468,3 +469,4 @@
     }
   }
 }
+

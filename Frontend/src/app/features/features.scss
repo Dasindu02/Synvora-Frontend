@@ -1,0 +1,329 @@
+@import '~@angular/material/theming';
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
+.features-container {
+  font-family: 'Roboto', sans-serif;
+  color: $text-primary;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0;
+  gap: 40px;
+
+  @include for-tablet-down {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .hero-content {
+    flex: 1;
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: $primary-dark;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: $text-secondary;
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+
+      @include for-tablet-down {
+        justify-content: center;
+      }
+
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .secondary-button {
+        padding: 12px 30px;
+      }
+    }
+  }
+
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    @include for-tablet-down {
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.features-section {
+  padding: 80px 0;
+  text-align: center;
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    color: $primary-dark;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: $accent;
+      border-radius: 2px;
+    }
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+
+    @include for-mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($primary, 0.1);
+      border-radius: 50%;
+      color: $primary;
+
+      mat-icon {
+        font-size: 36px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: $primary-dark;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+  }
+}
+
+.demo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0;
+  gap: 40px;
+  background: linear-gradient(to right, rgba($primary-light, 0.1) 0%, rgba(255,255,255,1) 100%);
+
+  @include for-tablet-down {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .demo-content {
+    flex: 1;
+    
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: $primary-dark;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: $text-secondary;
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+
+    .demo-button {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+  .demo-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    @include for-tablet-down {
+      justify-content: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.testimonials-section {
+  padding: 80px 0;
+  text-align: center;
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    color: $primary-dark;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include for-mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .testimonial-content {
+      flex: 1;
+      margin-bottom: 20px;
+      position: relative;
+
+      p {
+        font-style: italic;
+        color: $text-primary;
+        line-height: 1.6;
+        position: relative;
+        padding-left: 20px;
+
+        &::before {
+          content: '"';
+          position: absolute;
+          left: 0;
+          top: -10px;
+          font-size: 3rem;
+          color: rgba($primary, 0.2);
+          font-family: serif;
+          line-height: 1;
+        }
+      }
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .author-info {
+        .author-name {
+          font-weight: 500;
+          margin-bottom: 2px;
+        }
+
+        .author-title {
+          font-size: 0.9rem;
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+}
+
+.cta-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: $primary;
+  border-radius: 10px;
+  margin: 40px 0;
+  color: white;
+
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: white;
+    color: $primary;
+  }
+}
